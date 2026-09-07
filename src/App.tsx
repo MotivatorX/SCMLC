@@ -53,10 +53,26 @@ export default function App() {
   // Dynamic club events (initialized from localStorage or default UPCOMING_EVENTS)
   const [events, setEvents] = useState<ClubEvent[]>(() => {
     try {
-      const saved = localStorage.getItem('scmlc_events');
+      const saved = localStorage.getItem('scmlc_events_v3') || localStorage.getItem('scmlc_events');
       if (saved) {
-        const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+        const parsed: ClubEvent[] = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          // Merge UPCOMING_EVENTS into parsed list so newly published shotgun calendar events appear immediately
+          const existingIds = new Set(parsed.map(e => e.id));
+          const combined = [...parsed];
+          UPCOMING_EVENTS.forEach(defaultEvt => {
+            if (!existingIds.has(defaultEvt.id)) {
+              combined.push(defaultEvt);
+            } else {
+              // Update with enhanced program details if available
+              const idx = combined.findIndex(e => e.id === defaultEvt.id);
+              if (idx !== -1 && defaultEvt.program && !combined[idx].program) {
+                combined[idx] = { ...combined[idx], ...defaultEvt };
+              }
+            }
+          });
+          return combined;
+        }
       }
     } catch (e) {
       console.error('Error loading events from storage:', e);
@@ -98,7 +114,16 @@ export default function App() {
       const saved = localStorage.getItem('scmlc_notices');
       if (saved) {
         const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          const existingIds = new Set(parsed.map(n => n.id));
+          const combined = [...parsed];
+          NOTICES.forEach(defaultNotice => {
+            if (!existingIds.has(defaultNotice.id)) {
+              combined.push(defaultNotice);
+            }
+          });
+          return combined;
+        }
       }
     } catch (e) {
       console.error('Error loading notices from storage:', e);

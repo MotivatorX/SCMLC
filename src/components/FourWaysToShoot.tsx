@@ -22,7 +22,7 @@ export const FourWaysToShoot: React.FC<FourWaysToShootProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}
         <h2 className="text-4xl sm:text-5xl lg:text-6xl font-normal font-serif text-[#152E20] mb-12 sm:mb-16">
-          Four ways to shoot.
+          Our shooting disciplines.
         </h2>
 
         {/* List of 4 disciplines */}

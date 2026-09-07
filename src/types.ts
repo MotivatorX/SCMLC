@@ -15,6 +15,12 @@ export interface Discipline {
   image?: string;
 }
 
+export interface MatchStage {
+  name: string;
+  targets: string;
+  type?: string;
+}
+
 export interface ClubEvent {
   id: string;
   day: string;
@@ -31,6 +37,9 @@ export interface ClubEvent {
   fees: string;
   safetyBriefing: string;
   visitorFriendly: boolean;
+  program?: MatchStage[];
+  trophies?: string;
+  lunchIncluded?: boolean;
 }
 
 export interface Notice {

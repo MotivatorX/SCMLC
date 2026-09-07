@@ -358,6 +358,20 @@ export const Navbar: React.FC<NavbarProps> = ({
                   </div>
                   <span className="text-[9px] uppercase tracking-wider text-[#C0633C] font-semibold">1st Sun</span>
                 </button>
+                <button
+                  onClick={() => {
+                    closeAllDropdowns();
+                    onNavigate('disciplines');
+                    if (onSelectDiscipline) onSelectDiscipline('civilian-service-rifle');
+                  }}
+                  className="w-full text-left px-4 py-2.5 text-xs text-[#EAE2D2] hover:bg-[#1a3826] hover:text-white flex items-center justify-between cursor-pointer border-t border-[#1a3826]/60"
+                >
+                  <div>
+                    <div className="font-medium text-[#FAF4EE]">05 Civilian Service Rifle</div>
+                    <div className="text-[10px] text-[#A69980]">Historic military longarms at 100m/200m</div>
+                  </div>
+                  <span className="text-[9px] uppercase tracking-wider text-[#81D89D] font-semibold">2nd Sat</span>
+                </button>
               </div>
             )}
           </div>
@@ -535,7 +549,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               currentScreen === 'disciplines' ? 'text-[#C0633C]' : 'text-[#EAE2D2]'
             }`}
           >
-            DISCIPLINES (01-04)
+            DISCIPLINES (01-05)
           </button>
           <button
             onClick={() => {

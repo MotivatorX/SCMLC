@@ -82,6 +82,16 @@ export const CalendarScreen: React.FC<CalendarScreenProps> = ({
         evtYear.includes(searchTerm);
 
       return matchesMonth && matchesFilter && matchesSearch;
+    }).sort((a, b) => {
+      const yearA = parseInt(a.year || currentYear, 10);
+      const yearB = parseInt(b.year || currentYear, 10);
+      if (yearA !== yearB) return yearA - yearB;
+      const mA = MONTH_NAMES_SHORT.indexOf((a.month || '').toUpperCase().slice(0, 3) as any);
+      const mB = MONTH_NAMES_SHORT.indexOf((b.month || '').toUpperCase().slice(0, 3) as any);
+      if (mA !== mB) return mA - mB;
+      const dayA = parseInt((a.day || '0').split('-')[0], 10) || 0;
+      const dayB = parseInt((b.day || '0').split('-')[0], 10) || 0;
+      return dayA - dayB;
     });
   }, [eventList, selectedMonthFilter, filterCategory, searchTerm, currentMonthShort, currentYear]);
 
@@ -186,10 +196,11 @@ export const CalendarScreen: React.FC<CalendarScreenProps> = ({
           <div className="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto scrollbar-none pb-2 md:pb-0">
             {[
               { id: 'all', label: 'All Disciplines' },
+              { id: 'service rifle', label: 'Service Rifle' },
+              { id: 'shotgun', label: 'Shotgun' },
               { id: 'single action', label: 'Single Action' },
               { id: 'pistol', label: 'Pistol' },
               { id: 'rifle', label: 'Rifle' },
-              { id: 'shotgun', label: 'Shotgun' },
               { id: 'agm', label: 'AGM & Club' },
             ].map(cat => (
               <button
@@ -330,7 +341,7 @@ export const CalendarScreen: React.FC<CalendarScreenProps> = ({
                       <h3 className="text-xl sm:text-2xl font-serif text-[#152E20] group-hover:text-[#8C3A16] transition-colors mb-2">
                         {event.title}
                       </h3>
-                      <div className="flex flex-wrap items-center gap-4 text-xs text-[#6B5A45]">
+                      <div className="flex flex-wrap items-center gap-2.5 sm:gap-4 text-xs text-[#6B5A45]">
                         <span className="flex items-center gap-1 font-medium">
                           <CalendarIcon className="w-3.5 h-3.5 text-[#8C3A16]" />
                           {event.day} {event.month} {displayYear}
@@ -343,6 +354,21 @@ export const CalendarScreen: React.FC<CalendarScreenProps> = ({
                           <MapPin className="w-3.5 h-3.5" />
                           {event.location}
                         </span>
+                        {event.program && event.program.length > 0 && (
+                          <span className="bg-[#FAF3E8] text-[#8C3A16] border border-[#DECBB5] px-2 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider">
+                            {event.program.length} Stages
+                          </span>
+                        )}
+                        {event.trophies && (
+                          <span className="bg-[#F4E8D6] text-[#7A4B1A] border border-[#DFC4A0] px-2 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider">
+                            🏆 {event.trophies}
+                          </span>
+                        )}
+                        {event.lunchIncluded && (
+                          <span className="bg-[#E2ECE3] text-[#1E562F] border border-[#BFD9C3] px-2 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider">
+                            🥪 Lunch Incl.
+                          </span>
+                        )}
                         {event.visitorFriendly && (
                           <span className="bg-[#E7DAC7] text-[#554632] px-2 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider">
                             Visitors Welcome

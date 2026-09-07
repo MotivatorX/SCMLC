@@ -146,13 +146,69 @@ export const EventDetailModal: React.FC<EventDetailModalProps> = ({
 
           {/* Description */}
           <div>
-            <h4 className="text-xs uppercase tracking-wider font-semibold text-[#8C3A16] mb-2">
-              Match Overview
-            </h4>
+            <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+              <h4 className="text-xs uppercase tracking-wider font-semibold text-[#8C3A16]">
+                Match Overview
+              </h4>
+              <div className="flex items-center gap-2">
+                {event.trophies && (
+                  <span className="inline-flex items-center gap-1 bg-[#F4E8D6] text-[#7A4B1A] border border-[#DFC4A0] px-2 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider">
+                    🏆 {event.trophies}
+                  </span>
+                )}
+                {event.lunchIncluded && (
+                  <span className="inline-flex items-center gap-1 bg-[#E2ECE3] text-[#1E562F] border border-[#BFD9C3] px-2 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider">
+                    🥪 Lunch Included
+                  </span>
+                )}
+              </div>
+            </div>
             <p className="text-sm text-[#3E3528] leading-relaxed">
               {event.description}
             </p>
           </div>
+
+          {/* Match Program Stages Breakdown if available */}
+          {event.program && event.program.length > 0 && (
+            <div className="bg-[#FAF3E8] border border-[#DECBB5] rounded-xs p-4">
+              <div className="flex items-center justify-between mb-3 border-b border-[#DECBB5]/70 pb-2">
+                <span className="text-[11px] uppercase tracking-wider font-bold text-[#152E20]">
+                  Program Stages & Targets
+                </span>
+                <span className="text-[10px] uppercase font-semibold text-[#8C3A16] tracking-wider">
+                  S.C.M.L.C. Official Schedule
+                </span>
+              </div>
+              <div className="divide-y divide-[#DECBB5]/50 text-xs">
+                {event.program.map((stage, idx) => (
+                  <div key={idx} className="py-2 flex items-center justify-between gap-3">
+                    <div className="flex items-center gap-2">
+                      <span className="w-5 h-5 rounded-full bg-[#152E20] text-[#FAF6EE] text-[10px] font-bold flex items-center justify-center shrink-0">
+                        {idx + 1}
+                      </span>
+                      <span className="font-semibold text-[#1C1917]">{stage.name}</span>
+                    </div>
+                    <div className="flex items-center gap-2 shrink-0">
+                      <span className="text-[#65543F] font-mono text-[11px] bg-white px-2 py-0.5 rounded border border-[#DECBB5]">
+                        {stage.targets}
+                      </span>
+                      {stage.type && (
+                        <span
+                          className={`text-[9px] uppercase font-bold px-1.5 py-0.5 rounded ${
+                            stage.type.toLowerCase().includes('non')
+                              ? 'bg-amber-100 text-amber-800'
+                              : 'bg-emerald-100 text-emerald-800'
+                          }`}
+                        >
+                          {stage.type}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Schedule & Rules Breakdown */}
           <div className="space-y-3 border-t border-[#DECBB5] pt-4 text-xs text-[#4A4032]">

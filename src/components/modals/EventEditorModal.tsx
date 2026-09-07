@@ -29,6 +29,7 @@ interface EventEditorModalProps {
 }
 
 const DISCIPLINES = [
+  'Civilian Service Rifle',
   'Single Action',
   'Pistol events',
   'Rifle events',

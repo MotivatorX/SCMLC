@@ -37,7 +37,7 @@ export const DisciplinesScreen: React.FC<DisciplinesScreenProps> = ({
             </span>
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-normal leading-tight mb-4">
-            Four Ways to Shoot
+            Shooting Disciplines
           </h1>
           <p className="text-base sm:text-lg text-[#D5E2D0] max-w-2xl font-light">
             Every match is an encounter with authentic 19th-century history. Choose a discipline below to explore firearm categories, regulations, and course formats.
