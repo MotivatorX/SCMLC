@@ -77,14 +77,24 @@ export const MembersScreen: React.FC<MembersScreenProps> = ({
 
   return (
     <div className="bg-[#FAF6EE] text-[#1C1917] min-h-screen">
-      {/* Header */}
-      <section className="bg-[#152E20] text-[#F7F4EE] py-16 sm:py-20 border-b border-[#234832]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Header Banner */}
+      <section className="bg-[#152E20] text-[#F7F4EE] py-16 sm:py-20 border-b border-[#234832] relative overflow-hidden">
+        {/* Watermark Crest */}
+        <div className="absolute right-[-20px] top-[-20px] opacity-15 pointer-events-none hidden lg:block select-none">
+          <ClubLogo size={420} theme="dark" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
             <div>
-              <span className="text-xs uppercase tracking-[0.25em] font-semibold text-[#C0633C] block mb-3">
-                Member Resources & Administration
-              </span>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-1 bg-[#0E2016] rounded-full border border-[#C5A880]/50 shadow-sm shrink-0">
+                  <ClubLogo size={36} theme="dark" />
+                </div>
+                <span className="text-xs uppercase tracking-[0.25em] font-semibold text-[#C0633C]">
+                  Member Resources & Administration · Est. 1962
+                </span>
+              </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-normal leading-tight mb-4">
                 Members Area
               </h1>
@@ -138,6 +148,9 @@ export const MembersScreen: React.FC<MembersScreenProps> = ({
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 space-y-4">
               <div className="flex flex-wrap items-center gap-2.5">
+                <div className="p-0.5 bg-[#0E2016] rounded-full border border-[#C5A880]/60 shrink-0">
+                  <ClubLogo size={24} theme="dark" />
+                </div>
                 <span className="bg-[#C0633C] text-[#FAF6EE] text-[10px] uppercase font-bold tracking-[0.2em] px-2.5 py-1 rounded-xs">
                   Official Online Portal
                 </span>

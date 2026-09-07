@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { X, CheckCircle, Shield, AlertCircle, ShieldCheck } from 'lucide-react';
 import { RegistrationFormData } from '../../types';
 import { PrivacyNoticeBlock } from '../common/PrivacyNoticeBlock';
+import { ClubLogo } from '../ClubLogo';
 
 interface RegisterInterestModalProps {
   isOpen: boolean;
@@ -57,13 +58,18 @@ export const RegisterInterestModal: React.FC<RegisterInterestModalProps> = ({
       <div className="relative w-full max-w-2xl bg-[#FAF6EE] text-[#1C1917] rounded-sm shadow-2xl border border-[#D5C2A7] overflow-hidden my-8 animate-in fade-in zoom-in-95 duration-200">
         {/* Header */}
         <div className="bg-[#152E20] text-[#F7F4EE] px-6 py-5 flex items-center justify-between border-b border-[#234530]">
-          <div>
-            <span className="text-[10px] tracking-[0.2em] font-semibold uppercase text-[#C0633C] block mb-1">
-              Visitor Day & Membership
-            </span>
-            <h3 className="text-xl sm:text-2xl font-serif font-normal">
-              Register Your Interest
-            </h3>
+          <div className="flex items-center gap-3.5">
+            <div className="p-1 bg-[#0E2016] rounded-full border border-[#C5A880]/50 shadow-sm shrink-0">
+              <ClubLogo size={36} theme="dark" />
+            </div>
+            <div>
+              <span className="text-[10px] tracking-[0.2em] font-semibold uppercase text-[#C0633C] block mb-0.5">
+                Visitor Day & Membership · SCMLC
+              </span>
+              <h3 className="text-xl sm:text-2xl font-serif font-normal">
+                Register Your Interest
+              </h3>
+            </div>
           </div>
           <button
             onClick={onClose}

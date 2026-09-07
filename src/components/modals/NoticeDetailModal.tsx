@@ -1,6 +1,7 @@
 import React from 'react';
-import { X, AlertTriangle, Calendar, FileText, MapPin } from 'lucide-react';
+import { X, Calendar, FileText, MapPin } from 'lucide-react';
 import { Notice } from '../../types';
+import { ClubLogo } from '../ClubLogo';
 
 interface NoticeDetailModalProps {
   notice: Notice | null;
@@ -14,9 +15,11 @@ export const NoticeDetailModal: React.FC<NoticeDetailModalProps> = ({ notice, on
     <div className="fixed inset-0 z-50 overflow-y-auto bg-black/75 backdrop-blur-xs flex items-center justify-center p-4">
       <div className="relative w-full max-w-2xl bg-[#FAF6EE] text-[#1C1917] rounded-sm shadow-2xl border border-[#D5C2A7] overflow-hidden my-8 animate-in fade-in zoom-in-95 duration-200">
         {/* Top Banner */}
-        <div className="bg-[#EEDBBD] border-b border-[#DECBB5] px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#8C3A16]">
-            <AlertTriangle className="w-4 h-4 text-[#A84A22]" />
+        <div className="bg-[#EEDBBD] border-b border-[#DECBB5] px-6 py-3.5 flex items-center justify-between">
+          <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-wider text-[#8C3A16]">
+            <div className="shrink-0 p-0.5 rounded-full bg-[#152E20] border border-[#C5A880]/60 shadow-xs">
+              <ClubLogo size={24} theme="dark" />
+            </div>
             <span>OFFICIAL NOTICEBOARD ANNOUNCEMENT</span>
           </div>
           <button

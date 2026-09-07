@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { Calendar as CalendarIcon, Clock, MapPin, Search, ArrowUpRight, CheckCircle, Sparkles } from 'lucide-react';
 import { UPCOMING_EVENTS } from '../../data/clubData';
 import { ClubEvent } from '../../types';
+import { ClubLogo } from '../ClubLogo';
 import {
   getCurrentMonthFullName,
   getCurrentMonthShort,
@@ -86,18 +87,28 @@ export const CalendarScreen: React.FC<CalendarScreenProps> = ({
 
   return (
     <div className="bg-[#FAF6EE] text-[#1C1917] min-h-screen">
-      {/* Header */}
-      <section className="bg-[#152E20] text-[#F7F4EE] py-16 sm:py-20 border-b border-[#234832]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center gap-2 mb-3">
-            <span className="text-xs uppercase tracking-[0.25em] font-semibold text-[#C0633C] block">
-              Sackville Range Schedule
-            </span>
-            <span className="text-xs text-[#DECBB5]/60">·</span>
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-xs bg-[#234832] text-[#81D89D] text-[11px] font-semibold tracking-wider uppercase">
-              <CalendarIcon className="w-3 h-3" />
-              Current Month: {currentMonthFull} {currentYear}
-            </span>
+      {/* Header Banner */}
+      <section className="bg-[#152E20] text-[#F7F4EE] py-16 sm:py-20 border-b border-[#234832] relative overflow-hidden">
+        {/* Watermark Crest */}
+        <div className="absolute right-[-20px] top-[-20px] opacity-15 pointer-events-none hidden lg:block select-none">
+          <ClubLogo size={420} theme="dark" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="flex flex-wrap items-center gap-3 mb-4">
+            <div className="p-1 bg-[#0E2016] rounded-full border border-[#C5A880]/50 shadow-sm shrink-0">
+              <ClubLogo size={36} theme="dark" />
+            </div>
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-xs uppercase tracking-[0.25em] font-semibold text-[#C0633C] block">
+                Sackville Range Schedule · Est. 1962
+              </span>
+              <span className="text-xs text-[#DECBB5]/60 hidden sm:inline">·</span>
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-xs bg-[#234832] text-[#81D89D] text-[11px] font-semibold tracking-wider uppercase">
+                <CalendarIcon className="w-3 h-3" />
+                Current Month: {currentMonthFull} {currentYear}
+              </span>
+            </div>
           </div>
           
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-normal leading-tight mb-4">

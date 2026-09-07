@@ -68,9 +68,11 @@ export const HistoryAndNewsFeed: React.FC<HistoryAndNewsFeedProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             {/* Left: Heritage Narrative */}
             <div className="lg:col-span-5 space-y-5">
-              <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#8C3A16]">
-                <Shield className="w-4 h-4" />
-                <span>Club History & Living Heritage</span>
+              <div className="inline-flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#8C3A16]">
+                <div className="w-5 h-5 flex items-center justify-center bg-[#152E20] rounded-full text-[#C5A880] shrink-0">
+                  <Shield className="w-3 h-3" />
+                </div>
+                <span>Club History & Living Heritage · Est. 1962</span>
               </div>
               <h2 className="text-3xl sm:text-4xl font-serif text-[#152E20] leading-tight">
                 65 Years of Black Powder Marksmanship
@@ -125,9 +127,11 @@ export const HistoryAndNewsFeed: React.FC<HistoryAndNewsFeedProps> = ({
         <div className="pt-12 border-t border-[#D5C2A7]">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
             <div>
-              <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#0D4827] mb-2">
-                <BookOpen className="w-4 h-4" />
-                <span>The Colonial Dispatches</span>
+              <div className="inline-flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#0D4827] mb-2">
+                <div className="w-5 h-5 flex items-center justify-center bg-[#152E20] rounded-full text-[#C5A880] shrink-0">
+                  <BookOpen className="w-3 h-3" />
+                </div>
+                <span>The Colonial Dispatches · Official Journal</span>
               </div>
               <h2 className="text-3xl sm:text-4xl font-serif text-[#152E20]">
                 Journal and Posts

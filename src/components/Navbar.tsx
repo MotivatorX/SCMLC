@@ -109,7 +109,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   }, [openDropdown, closeAllDropdowns]);
 
   return (
-    <header className="sticky top-0 z-40 bg-[#152E20] border-b border-[#1f402c] shadow-md">
+    <header className="sticky top-0 z-40 shadow-md">
       {/* Invisible backdrop when any desktop dropdown is open to guarantee instant dismissal on outside click */}
       {openDropdown !== null && (
         <div
@@ -119,28 +119,68 @@ export const Navbar: React.FC<NavbarProps> = ({
         />
       )}
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between relative z-50">
-        {/* Left: Brand / Logo */}
-        <button
-          id="nav-logo-btn"
-          onClick={() => {
-            closeAllDropdowns();
-            onNavigate('home');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
-          className="flex items-center gap-3 group text-left cursor-pointer focus:outline-none"
-          aria-label="Sydney Colonial Muzzle Loading Club Home"
-        >
-          <ClubLogo size={52} showText={false} theme="dark" />
-          <div className="hidden sm:flex flex-col">
-            <span className="text-[13px] tracking-[0.22em] font-semibold text-[#F7F4EE] uppercase leading-tight font-sans group-hover:text-[#EAE2D2] transition-colors">
-              Sydney Colonial
+      {/* Top Heritage Utility Bar */}
+      <div className="bg-[#0B1A11] border-b border-[#1A3825] text-[11px] py-1.5 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto flex items-center justify-between text-[#A6BAAE]">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <span className="flex items-center gap-1.5 text-[#C4B79B]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#81D89D] animate-pulse" />
+              <span className="font-medium tracking-wide">Sackville Range · Hawkesbury Valley, NSW</span>
             </span>
-            <span className="text-[11px] tracking-[0.16em] text-[#C4B79B] uppercase font-serif">
-              Muzzle Loading Club · Est. 1962
-            </span>
+            <span className="hidden md:inline text-[#1F452E]">|</span>
+            <span className="hidden md:inline text-[#8C9E94]">Shoots 1st & 3rd Sundays</span>
           </div>
-        </button>
+          <div className="flex items-center gap-4 text-[11px]">
+            <span className="hidden sm:inline text-[#C4B79B]/80 tracking-wider">
+              Traditional Black Powder · Est. 1962
+            </span>
+            <button
+              onClick={() => onNavigate('members')}
+              className="text-[#C5A880] hover:text-[#FAF6EE] transition-colors flex items-center gap-1 cursor-pointer font-medium tracking-wide"
+            >
+              <ShieldCheck className="w-3 h-3 text-[#C0633C]" />
+              <span>Members Portal</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Navbar */}
+      <div className="bg-[#152E20] border-b border-[#1f402c]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[5.5rem] py-2.5 flex items-center justify-between relative z-50">
+          {/* Left: Brand / Logo */}
+          <button
+            id="nav-logo-btn"
+            onClick={() => {
+              closeAllDropdowns();
+              onNavigate('home');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className="flex items-center gap-3.5 sm:gap-4 group text-left cursor-pointer focus:outline-none py-1"
+            aria-label="The Sydney Colonial Muzzle-Loading Club Home"
+          >
+            <div className="relative p-1 rounded-full bg-[#0D2016] border border-[#C5A880]/40 group-hover:border-[#C5A880] transition-colors shadow-md shrink-0">
+              <div className="block sm:hidden">
+                <ClubLogo size={62} showText={false} theme="dark" />
+              </div>
+              <div className="hidden sm:block">
+                <ClubLogo size={74} showText={false} theme="dark" />
+              </div>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[14px] sm:text-[16px] md:text-[17px] tracking-[0.2em] font-bold text-[#FAF6EE] uppercase leading-tight font-serif group-hover:text-[#C5A880] transition-colors">
+                The Sydney Colonial
+              </span>
+              <div className="flex items-center gap-2 mt-0.5">
+                <span className="text-[10px] sm:text-[12px] tracking-[0.16em] text-[#C4B79B] uppercase font-sans font-medium">
+                  Muzzle-Loading Club
+                </span>
+                <span className="hidden sm:inline-block text-[9px] font-mono tracking-widest text-[#C0633C] px-1.5 py-0.5 bg-[#C0633C]/15 border border-[#C0633C]/30 rounded-xs">
+                  EST. 1962
+                </span>
+              </div>
+            </div>
+          </button>
 
         {/* Center/Right: Desktop Navigation */}
         <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2">
@@ -329,13 +369,16 @@ export const Navbar: React.FC<NavbarProps> = ({
               closeAllDropdowns();
               onNavigate('calendar');
             }}
-            className={`px-3 py-2 text-[12px] xl:text-[13px] tracking-[0.12em] font-medium uppercase transition-colors rounded-sm cursor-pointer ${
+            className={`relative px-3 py-2 text-[12px] xl:text-[13px] tracking-[0.12em] font-medium uppercase transition-colors rounded-sm cursor-pointer ${
               currentScreen === 'calendar'
-                ? 'text-[#EAE2D2] font-semibold'
+                ? 'text-[#FAF6EE] font-semibold'
                 : 'text-[#EAE2D2]/80 hover:text-white'
             }`}
           >
-            EVENT CALENDAR
+            <span>EVENT CALENDAR</span>
+            {currentScreen === 'calendar' && (
+              <span className="absolute bottom-0.5 left-3 right-3 h-[2px] bg-[#C0633C] rounded-full" />
+            )}
           </button>
 
           {/* JOURNAL AND POSTS Link */}
@@ -345,13 +388,16 @@ export const Navbar: React.FC<NavbarProps> = ({
               closeAllDropdowns();
               onNavigate('journal');
             }}
-            className={`px-3 py-2 text-[12px] xl:text-[13px] tracking-[0.12em] font-medium uppercase transition-colors rounded-sm cursor-pointer ${
+            className={`relative px-3 py-2 text-[12px] xl:text-[13px] tracking-[0.12em] font-medium uppercase transition-colors rounded-sm cursor-pointer ${
               currentScreen === 'journal'
-                ? 'text-[#EAE2D2] font-semibold'
+                ? 'text-[#FAF6EE] font-semibold'
                 : 'text-[#EAE2D2]/80 hover:text-white'
             }`}
           >
-            JOURNAL & POSTS
+            <span>JOURNAL & POSTS</span>
+            {currentScreen === 'journal' && (
+              <span className="absolute bottom-0.5 left-3 right-3 h-[2px] bg-[#C0633C] rounded-full" />
+            )}
           </button>
 
           {/* MEMBERS AREA Link */}
@@ -361,13 +407,16 @@ export const Navbar: React.FC<NavbarProps> = ({
               closeAllDropdowns();
               onNavigate('members');
             }}
-            className={`px-3 py-2 text-[12px] xl:text-[13px] tracking-[0.12em] font-medium uppercase transition-colors rounded-sm cursor-pointer ${
+            className={`relative px-3 py-2 text-[12px] xl:text-[13px] tracking-[0.12em] font-medium uppercase transition-colors rounded-sm cursor-pointer ${
               currentScreen === 'members'
-                ? 'text-[#EAE2D2] font-semibold'
+                ? 'text-[#FAF6EE] font-semibold'
                 : 'text-[#EAE2D2]/80 hover:text-white'
             }`}
           >
-            MEMBERS AREA
+            <span>MEMBERS AREA</span>
+            {currentScreen === 'members' && (
+              <span className="absolute bottom-0.5 left-3 right-3 h-[2px] bg-[#C0633C] rounded-full" />
+            )}
           </button>
 
           {/* Admin Controls */}
@@ -436,10 +485,25 @@ export const Navbar: React.FC<NavbarProps> = ({
           </button>
         </div>
       </div>
+    </div>
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#112519] border-t border-[#20422d] px-4 pt-3 pb-6 space-y-3 relative z-50">
+        <div className="lg:hidden bg-[#112519] border-t border-[#20422d] px-4 pt-3 pb-6 space-y-3 relative z-50 shadow-2xl">
+          {/* Mobile Crest Header Card */}
+          <div className="flex items-center gap-3.5 pb-3.5 border-b border-[#1f3f2b]">
+            <div className="p-1 rounded-full bg-[#0D2016] border border-[#C5A880]/40 shrink-0">
+              <ClubLogo size={54} showText={false} theme="dark" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-sm font-bold font-serif text-[#FAF6EE] tracking-wider uppercase">
+                The Sydney Colonial
+              </span>
+              <span className="text-[11px] text-[#C4B79B] tracking-wider uppercase">
+                Muzzle-Loading Club · Est. 1962
+              </span>
+            </div>
+          </div>
           <button
             onClick={() => {
               onNavigate('home');

@@ -1,4 +1,4 @@
-<svg viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
     <path id="text-arc" d="M 42,242 A 162,162 0 1,1 358,242" fill="none" />
     <g id="rifle-part">
@@ -22,7 +22,7 @@
   <circle cx="200" cy="200" r="144" fill="#0D4827" stroke="#C5A880" stroke-width="3.5" />
 
   <text fill="#C5A880" font-size="15.8" font-family="Georgia, 'Times New Roman', serif" font-weight="bold" letter-spacing="2.8">
-    <textPath href="#text-arc" startOffset="50%" text-anchor="middle">
+    <textPath href="#text-arc" xlink:href="#text-arc" startOffset="50%" text-anchor="middle">
       THE SYDNEY COLONIAL MUZZLE-LOADING CLUB
     </textPath>
   </text>
@@ -34,8 +34,8 @@
   <path d="M 106,138 C 122,126 156,128 200,136 C 244,128 278,126 294,138 C 290,186 280,228 200,318 C 120,228 110,186 106,138 Z" fill="#161514" stroke="#C5A880" stroke-width="4.5" stroke-linejoin="round" />
   <path d="M 116,144 C 130,134 158,136 200,143 C 242,136 270,134 284,144 C 280,184 271,222 200,306 C 129,222 120,184 116,144 Z" fill="none" stroke="#C5A880" stroke-width="1.8" stroke-linejoin="round" />
 
-  <g transform="translate(200, 192) rotate(-50)"><use href="#rifle-part" /></g>
-  <g transform="translate(200, 192) scale(-1, 1) rotate(-50)"><use href="#rifle-part" /></g>
+  <g transform="translate(200, 192) rotate(-50)"><use href="#rifle-part" xlink:href="#rifle-part" /></g>
+  <g transform="translate(200, 192) scale(-1, 1) rotate(-50)"><use href="#rifle-part" xlink:href="#rifle-part" /></g>
 
   <text x="200" y="168" text-anchor="middle" fill="#C5A880" font-size="36" font-family="Georgia, 'Times New Roman', serif" font-weight="bold">S</text>
   <text x="152" y="204" text-anchor="middle" fill="#C5A880" font-size="35" font-family="Georgia, 'Times New Roman', serif" font-weight="bold">M</text>

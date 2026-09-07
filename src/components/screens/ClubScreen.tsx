@@ -20,9 +20,14 @@ export const ClubScreen: React.FC<ClubScreenProps> = ({
       <section className="bg-[#152E20] text-[#F7F4EE] py-20 lg:py-28 relative overflow-hidden border-b border-[#234832]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl">
-            <span className="text-xs uppercase tracking-[0.25em] font-semibold text-[#C0633C] block mb-3">
-              Founded 1962 · Hawkesbury Valley, NSW
-            </span>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-1 bg-[#0E2016] rounded-full border border-[#C5A880]/50 shadow-sm shrink-0">
+                <ClubLogo size={36} theme="dark" />
+              </div>
+              <span className="text-xs uppercase tracking-[0.25em] font-semibold text-[#C0633C]">
+                Founded 1962 · Hawkesbury Valley, NSW
+              </span>
+            </div>
             <h1 className="text-4xl sm:text-6xl font-serif font-normal leading-[1.1] mb-6">
               The Sydney Colonial Muzzle Loading Club
             </h1>
