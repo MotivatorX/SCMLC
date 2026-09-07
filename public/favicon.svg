@@ -1,0 +1,46 @@
+<svg viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <path id="text-arc" d="M 42,242 A 162,162 0 1,1 358,242" fill="none" />
+    <g id="rifle-part">
+      <polygon points="-8,-1.8 74,-1.2 74,1.2 -8,1.8" fill="#C5A880" />
+      <rect x="71" y="-2.6" width="3.2" height="5.2" rx="0.4" fill="#C5A880" />
+      <polygon points="66,-1.4 67.5,-3.8 69.5,-3.8 70,-1.4" fill="#C5A880" />
+      <rect x="8" y="1.8" width="64" height="1.2" fill="#C5A880" />
+      <rect x="26" y="1.5" width="4" height="1.8" fill="#C5A880" />
+      <rect x="48" y="1.5" width="4" height="1.8" fill="#C5A880" />
+      <polygon points="-8,-1.8 54,-1.2 50,2.8 -8,3.2" fill="#C5A880" />
+      <path d="M -9,-1.8 C -9,-7 -3.5,-9 1,-5.2 C 2.5,-4 0.5,-1.8 2.5,-1.2 Z" fill="#C5A880" />
+      <circle cx="-2.5" cy="-5.4" r="1.8" fill="#161514" />
+      <path d="M 0,-1.8 L 3.5,-4" stroke="#C5A880" stroke-width="1.4" />
+      <path d="M -15,2.8 C -15,9 -2,9 -1,2.8 C -3,2.8 -4,6.2 -8,6.2 C -12,6.2 -12,2.8 -15,2.8 Z" fill="#C5A880" />
+      <path d="M -7,2.8 C -7,5.5 -9,6 -9,5" stroke="#C5A880" stroke-width="1.2" fill="none" />
+      <path d="M -8,-1.8 C -24,-3 -44,-5.5 -72,-9.5 C -74,-8.5 -70,2 -74,10.5 C -68,12 -58,9 -42,5.5 C -24,4.2 -8,3.4 -8,2.8 Z" fill="#C5A880" />
+    </g>
+  </defs>
+
+  <circle cx="200" cy="200" r="194" fill="#161514" stroke="#C5A880" stroke-width="3.5" />
+  <circle cx="200" cy="200" r="144" fill="#0D4827" stroke="#C5A880" stroke-width="3.5" />
+
+  <text fill="#C5A880" font-size="15.8" font-family="Georgia, 'Times New Roman', serif" font-weight="bold" letter-spacing="2.8">
+    <textPath href="#text-arc" startOffset="50%" text-anchor="middle">
+      THE SYDNEY COLONIAL MUZZLE-LOADING CLUB
+    </textPath>
+  </text>
+
+  <polygon points="200,344 202.82,351.12 210.46,351.6 204.57,356.48 206.47,363.9 200,359.8 193.53,363.9 195.43,356.48 189.54,351.6 197.18,351.12" fill="#C5A880" />
+  <polygon points="165.94,339.75 169.42,344.48 175.21,343.5 171.79,348.27 174.51,353.46 168.92,351.69 164.82,355.88 164.78,350.01 159.52,347.41 165.09,345.56" fill="#C5A880" />
+  <polygon points="234.06,339.75 234.91,345.56 240.48,347.41 235.22,350.01 235.18,355.88 231.08,351.69 225.49,353.46 228.21,348.27 224.79,343.5 230.58,344.48" fill="#C5A880" />
+
+  <path d="M 106,138 C 122,126 156,128 200,136 C 244,128 278,126 294,138 C 290,186 280,228 200,318 C 120,228 110,186 106,138 Z" fill="#161514" stroke="#C5A880" stroke-width="4.5" stroke-linejoin="round" />
+  <path d="M 116,144 C 130,134 158,136 200,143 C 242,136 270,134 284,144 C 280,184 271,222 200,306 C 129,222 120,184 116,144 Z" fill="none" stroke="#C5A880" stroke-width="1.8" stroke-linejoin="round" />
+
+  <g transform="translate(200, 192) rotate(-50)"><use href="#rifle-part" /></g>
+  <g transform="translate(200, 192) scale(-1, 1) rotate(-50)"><use href="#rifle-part" /></g>
+
+  <text x="200" y="168" text-anchor="middle" fill="#C5A880" font-size="36" font-family="Georgia, 'Times New Roman', serif" font-weight="bold">S</text>
+  <text x="152" y="204" text-anchor="middle" fill="#C5A880" font-size="35" font-family="Georgia, 'Times New Roman', serif" font-weight="bold">M</text>
+  <text x="248" y="204" text-anchor="middle" fill="#C5A880" font-size="35" font-family="Georgia, 'Times New Roman', serif" font-weight="bold">L</text>
+  <text x="200" y="240" text-anchor="middle" fill="#C5A880" font-size="36" font-family="Georgia, 'Times New Roman', serif" font-weight="bold">C</text>
+
+  <path d="M 183,267 C 184,263 186,259 188,255 C 189,252 191,254 191,258 C 192,253 194,255 194,259 C 194,264 197,267 200,268 C 205,270 210,272 215,276 C 222,280 231,283 238,279 C 241,277 238,272 235,273 C 229,276 221,275 215,271 C 213,270 211,272 209,275 C 212,281 210,290 205,294 C 202,296 195,296 190,296 C 187,296 188,293 191,293 C 196,292 199,287 199,282 C 198,280 195,279 193,276 C 190,277 186,278 183,276 C 182,274 184,272 187,272 C 189,269 186,268 183,267 Z" fill="#C5A880" />
+</svg>

@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --color-racing-green: #152E20;
+  --color-racing-green-dark: #0D2016;
+  --color-racing-green-light: #1E402E;
+  --color-rust: #C0633C;
+  --color-rust-hover: #A9532F;
+  --color-parchment: #FAF6EE;
+  --color-parchment-warm: #F5EFE4;
+  --color-parchment-dark: #EAE2D2;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, .font-editorial {
+  font-family: var(--font-serif);
+}
+
